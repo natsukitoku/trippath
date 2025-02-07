@@ -24,6 +24,13 @@ public class MemberController {
 
     private final MemberService service;
 
+    @GetMapping("/index")
+    public ResponseEntity<String> index() {
+        return ResponseEntity.ok()
+                    .body("Hello!");
+    }
+    
+
     @PostMapping("/create")
     public ResponseEntity<String> create(@ModelAttribute MemberForm form,  Model model) {
         service.create(form);

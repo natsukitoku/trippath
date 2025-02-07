@@ -9,5 +9,10 @@ module.exports = defineConfig({
       importStrategy: 'kebab',
       rtlSupport: false
     }
+  },
+
+  //springbootのポート番号と被るため変更
+  devServer: {
+    port: 8081
   }
 })

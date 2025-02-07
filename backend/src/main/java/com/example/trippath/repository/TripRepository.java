@@ -11,6 +11,6 @@ import com.example.trippath.entity.Trip;
 @Repository
 public interface TripRepository  extends JpaRepository<Trip, Integer>{
 
-    @Query("SELECT t FROM Trip t WHERE t.creatorId = :id")
+    @Query("SELECT t FROM Trip t WHERE t.creatorId = :id AND t.deletedAt IS NULL")
     public List<Trip> findAll(Integer id);
 }
