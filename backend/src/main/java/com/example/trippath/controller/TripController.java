@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.trippath.entity.Trip;
@@ -35,7 +35,7 @@ public class TripController {
     
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@ModelAttribute TripForm form, Model model, HttpSession session) {
+    public ResponseEntity<String> create(@RequestBody TripForm form, Model model, HttpSession session) {
         session.setAttribute("member", 1);
         Integer creatorId = (Integer) session.getAttribute("member");
         service.create(form, creatorId);
@@ -51,7 +51,7 @@ public class TripController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> update(@ModelAttribute TripForm form, Integer id) {
+    public ResponseEntity<String> update(@RequestBody TripForm form, Integer id) {
         service.update(form, id);
         return ResponseEntity.ok()
                     .body("旅の編集完了");
