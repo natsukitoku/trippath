@@ -7,7 +7,7 @@
           <q-card class="my-card q-ma-sm col">
             <q-card-section>
               <div class="row items-center no-wrap">
-                <a href="./detail" class="col">
+                <a href="./trips/detail" class="col">
                   <div class="text-h7">{{ trip.title }}</div>
                   <!-- <div class="text-subtitle2">by John Doe</div> -->
                 </a>
